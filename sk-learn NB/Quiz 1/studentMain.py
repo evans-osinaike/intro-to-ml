@@ -10,7 +10,7 @@
 
 from prep_terrain_data import makeTerrainData
 from class_vis import prettyPicture, output_image
-from ClassifyNB import classify
+from ClassifyNB import classify, predicting
 
 import numpy as np
 import pylab as pl
@@ -29,8 +29,13 @@ bumpy_slow = [features_train[ii][1] for ii in range(0, len(features_train)) if l
 
 # You will need to complete this function imported from the ClassifyNB script.
 # Be sure to change to that code tab to complete this quiz.
-clf = classify(features_train, labels_train)
+clf = classify(features_train, labels_train)    
 
+pred = predicting(features_train, labels_train, features_test, labels_test)
+
+from sklearn.metrics import accuracy_score
+
+print(accuracy_score(pred, labels_test))
 
 
 ### draw the decision boundary with the text points overlaid

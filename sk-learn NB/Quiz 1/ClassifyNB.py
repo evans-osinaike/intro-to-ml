@@ -10,4 +10,14 @@ def classify(features_train, labels_train):
     clf = GaussianNB()
     clf.fit(features_train, labels_train)
 
-    return clf
+    return 
+
+def predicting(features_train, labels_train, features_test, labels_test):
+    from sklearn.naive_bayes import GaussianNB
+    
+    clf = GaussianNB()
+    clf.fit(features_train, labels_train)
+
+    pred = clf.predict(features_test)
+
+    return pred
